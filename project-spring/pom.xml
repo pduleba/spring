@@ -16,13 +16,20 @@
 		<logback.version>1.0.13</logback.version>
 		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-		<servlet-api.version>2.4</servlet-api.version>
+		<servlet-api.version>3.1.0</servlet-api.version>
+		<maven-war-plugin.version>2.6</maven-war-plugin.version>
 	</properties>
 
 	<build>
 		<finalName>project-spring</finalName>
 
 		<plugins>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-war-plugin</artifactId>
+			    <version>${maven-war-plugin.version}</version>
+    		</plugin>
+		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -101,7 +108,7 @@
 		<!-- servlet API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
+			<artifactId>javax.servlet-api</artifactId>
 			<version>${servlet-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
