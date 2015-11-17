@@ -9,21 +9,16 @@
 	xmlns:rich="http://richfaces.org/rich">
 
 	<h:head>
-		<title>JSF 2.2 Example</title>
+		<title>JSF 2.2</title>
 	</h:head>
-	<h:body>
+	<h:body bgcolor="white">
 		<rich:panel>
 			<f:facet name="header">
-		        JSF 2.2 Example - index.xhtml
-	        </f:facet>
-			<h:form>
-				<h:message for="name" />
-	
-				<h:inputText id="name" value="#{sessionBean.name}">
-					<f:validateRequired for="name" />
-				</h:inputText>
-				<h:commandButton value="Click me" action="#{sessionBean.doAction}" />
-			</h:form>
+			        JSF 2.2 Example - response.xhtml
+		        </f:facet>
+			<h2>
+				Response : <h:outputText value="#{sessionBean.actionResult}" />
+			</h2>
 		</rich:panel>
 	</h:body>
 </html>
