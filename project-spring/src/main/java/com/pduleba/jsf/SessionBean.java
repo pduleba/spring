@@ -25,32 +25,32 @@ public @Data class SessionBean implements Serializable {
 
 	private final static Logger LOG = LoggerFactory.getLogger(SessionBean.class);
 	
-	private String name;
+	private String input;
 	
-	private String actionResult;
+	private String response;
 	
 	@Autowired
-	private MessageService message;
+	private MessageService messageService;
 
 	public String doAction() {
-		return interceptAction(name -> setupActionResult(name), "doAction", "response");
+		return interceptAction(() -> componseReponseTask(), "doAction", "response");
 	}
 
 	private String interceptAction(final Action<String> action, final String actionName, final String response) {
 		logMe(actionName);
 		
-		action.execute(this.name);
+		action.execute();
 		
 		return response;
 	}
 
-	private void setupActionResult(String input) {
-		setActionResult(message.getMessage(input));
+	private void componseReponseTask() {
+		setResponse(messageService.getMessage(this.input));
 	}
 
 	private void logMe(String action) {
 		if (LOG.isDebugEnabled()) {
-			LOG.debug(new StringBuilder(action).append(" :: ").append(this.name).toString());
+			LOG.debug(new StringBuilder(action).append(" :: executed ").toString());
 		}
 	}
 }

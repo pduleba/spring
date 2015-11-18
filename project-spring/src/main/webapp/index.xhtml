@@ -19,7 +19,7 @@
 			<h:form>
 				<h:message for="name" />
 	
-				<h:inputText id="name" value="#{sessionBean.name}">
+				<h:inputText id="name" value="#{sessionBean.input}">
 					<f:validateRequired for="name" />
 				</h:inputText>
 				<h:commandButton value="Click me" action="#{sessionBean.doAction}" />
