@@ -9,7 +9,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<!-- Application dependencies X -->
+		<!-- Application dependencies -->
 		<el-api.version>3.0.0</el-api.version>
 		<java.version>1.8</java.version>
 		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
