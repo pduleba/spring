@@ -17,16 +17,6 @@
 		</listener-class>
 	</listener>
 
-    <context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
-    </context-param>
-
-    <context-param>
-        <param-name>javax.faces.SKIP_COMMENTS</param-name>
-        <param-value>true</param-value>
-    </context-param>
-
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -40,23 +30,6 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
-    
-    <!-- Resource Servlet - serves static resources and resources for specific components -->
-    <servlet>
-        <servlet-name>Resource Servlet</servlet-name>
-        <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Resource Servlet</servlet-name>
-        <url-pattern>/org.richfaces.resources/*</url-pattern>
-    </servlet-mapping>
-    
-    <!-- Resource Mapping - resources will be served compressed and packed in production -->
-    <context-param>
-        <param-name>org.richfaces.resourceMapping.enabled</param-name>
-        <param-value>true</param-value>
-    </context-param>
 
     <session-config>
         <session-timeout>30</session-timeout>
@@ -70,5 +43,4 @@
         <auth-method>BASIC</auth-method>
     </login-config>
     
-
 </web-app>

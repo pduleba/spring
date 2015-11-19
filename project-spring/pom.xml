@@ -79,25 +79,6 @@
 		</plugins>
 	</build>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.richfaces</groupId>
-				<artifactId>richfaces-cache-bom</artifactId>
-				<type>pom</type>
-				<version>${org.richfaces.version}</version>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.richfaces</groupId>
-				<artifactId>richfaces-build</artifactId>
-				<type>pom</type>
-				<version>${org.richfaces.version}</version>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
 	<dependencies>
 
 		<!-- Spring Core -->
@@ -121,10 +102,6 @@
 
 		<!-- JSF -->
 		<!-- http://docs.jboss.org/richfaces/latest_4_5_X/Developer_Guide/en-US/html/chap-Developer_Guide-Getting_started_with_RichFaces.html -->
-		<dependency>
-			<groupId>org.richfaces</groupId>
-			<artifactId>richfaces</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -187,26 +164,6 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
-		</dependency>
-
-		<!-- Bean validation (JSR-303) integration for client-side validation (JSR-303 
-			API and Implementation) -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-			
-		<!-- Push transport library - Atmosphere (without dependencies) -->
-		<!-- TODO -->
-		<!-- Push JMS integration (JMS API and Implementation) -->
-		<!-- TODO -->
-		<!-- Push CDI integration (CDI API and Implementation) -->
-		<!-- TODO -->
-
-		<!-- Extended caching (EhCache) -->
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
 		</dependency>
 
 	</dependencies>
