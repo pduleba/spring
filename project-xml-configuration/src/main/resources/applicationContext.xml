@@ -11,6 +11,8 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 		<property name="timeService" ref="timeService" />
 	</bean>
 
-	<bean id="timeService" class="com.pduleba.spring.xml.configuration.beans.TimeServiceImpl" />
+	<bean id="timeService" class="com.pduleba.spring.xml.configuration.beans.TimeServiceImpl" autowire="byType" />
+	
+	<bean id="lazyLogger" class="com.pduleba.spring.xml.configuration.beans.LazyLoggerServiceImpl" lazy-init="true"/>
 
 </beans>

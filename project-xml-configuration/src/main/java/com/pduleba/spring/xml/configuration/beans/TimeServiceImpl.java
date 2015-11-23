@@ -3,7 +3,9 @@ package com.pduleba.spring.xml.configuration.beans;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-class TimeServiceImpl implements TimeServiceApi {
+import lombok.Data;
+
+@Data class TimeServiceImpl implements TimeServiceApi {
 
 	@Override
 	public String getCurrentDate() {

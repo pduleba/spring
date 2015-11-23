@@ -1,11 +1,13 @@
 package com.pduleba.spring.java.configuration.beans;
 
+import static com.pduleba.spring.java.configuration.beans.LazyLoggerServiceApi.LAZY_BEAN_BEAN_NAME;
 import static com.pduleba.spring.java.configuration.beans.ServiceApi.SERVICE_BEAN_NAME;
 import static com.pduleba.spring.java.configuration.beans.TimeServiceApi.TIME_SERVICE_BEAN_NAME;
 
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 @Configuration
 public class SpringConfiguration {
@@ -20,5 +22,11 @@ public class SpringConfiguration {
 	@Bean(name=TIME_SERVICE_BEAN_NAME)
 	public TimeServiceImpl timeService() {
 		return new TimeServiceImpl();
+	}
+	
+	@Lazy
+	@Bean(name=LAZY_BEAN_BEAN_NAME)
+	public LazyLoggerServiceImpl lazyLoggerService() {
+		return new LazyLoggerServiceImpl();
 	}
 }
