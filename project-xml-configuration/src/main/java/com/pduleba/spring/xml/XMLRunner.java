@@ -25,7 +25,10 @@ public @AllArgsConstructor class XMLRunner {
 	
 	public void execute() {
 		System.out.println("Starting XML Configuration based Spring...");
-		context.getBean(LazyLoggerServiceApi.class);
+		System.out.println(context.getBean(LazyLoggerServiceApi.class));
+		System.out.println(context.getBean(LazyLoggerServiceApi.class));
+		System.out.println(context.getBean(LazyLoggerServiceApi.class));
+		System.out.println(context.getBean(LazyLoggerServiceApi.class));
 		System.out.println(new StringBuilder("Result :: ").append(service.getResult()).toString());
 	}
 	

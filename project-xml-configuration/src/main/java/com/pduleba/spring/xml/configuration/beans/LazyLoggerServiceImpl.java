@@ -5,8 +5,10 @@ import lombok.Data;
 public @Data class LazyLoggerServiceImpl implements LazyLoggerServiceApi {
 
 	private static final String LOG_PREFIX = "LOG : ";
+	private static int counter = 0;
 
 	public LazyLoggerServiceImpl() {
+		LazyLoggerServiceImpl.counter++;
 		System.out.println("Lazy Logger initialization");
 	}
 	
@@ -20,6 +22,11 @@ public @Data class LazyLoggerServiceImpl implements LazyLoggerServiceApi {
 	
 	public void destroy() {
 		System.out.println("LazyLogger :: destroy() called");
+	}
+
+	@Override
+	public String toString() {
+		return new StringBuilder("counter :: ").append(counter).toString();
 	}
 	
 }

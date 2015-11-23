@@ -5,9 +5,11 @@ import static com.pduleba.spring.java.configuration.beans.ServiceApi.SERVICE_BEA
 import static com.pduleba.spring.java.configuration.beans.TimeServiceApi.TIME_SERVICE_BEAN_NAME;
 
 import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class SpringConfiguration {
@@ -24,6 +26,7 @@ public class SpringConfiguration {
 		return new TimeServiceImpl();
 	}
 	
+	@Scope(scopeName=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	@Lazy
 	@Bean(name=LAZY_BEAN_BEAN_NAME, initMethod="init", destroyMethod="destroy")
 	public LazyLoggerServiceImpl lazyLoggerService() {
