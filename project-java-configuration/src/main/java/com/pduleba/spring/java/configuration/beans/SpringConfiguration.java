@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Lazy;
 @Configuration
 public class SpringConfiguration {
 	
-	private static String SERVICE_BEAN_MESSAGE = "Hello";
+	private static final String SERVICE_BEAN_MESSAGE = "Hello";
 
 	@Bean(name=SERVICE_BEAN_NAME, autowire=Autowire.BY_TYPE)
 	public ServiceImpl service() {
@@ -25,7 +25,7 @@ public class SpringConfiguration {
 	}
 	
 	@Lazy
-	@Bean(name=LAZY_BEAN_BEAN_NAME)
+	@Bean(name=LAZY_BEAN_BEAN_NAME, initMethod="init", destroyMethod="destroy")
 	public LazyLoggerServiceImpl lazyLoggerService() {
 		return new LazyLoggerServiceImpl();
 	}

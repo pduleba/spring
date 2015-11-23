@@ -13,5 +13,13 @@ public @Data class LazyLoggerServiceImpl implements LazyLoggerServiceApi {
 	public void log(String arg) {
 		System.out.println(new StringBuilder(LOG_PREFIX).append(arg).toString());
 	}
+
+	public void init() {
+		System.out.println("LazyLogger :: init() called");
+	}
+	
+	public void destroy() {
+		System.out.println("LazyLogger :: destroy() called");
+	}
 	
 }
