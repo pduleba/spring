@@ -25,7 +25,9 @@ public @AllArgsConstructor class JavaRunner {
 	}
 	
 	public void execute() {
+		System.out.println("------------------------------------------");
 		System.out.println("Starting Java Configuration based Spring...");
+		System.out.println("------------------------------------------");
 		System.out.println(context.getBean(LazyLoggerServiceApi.class));
 		System.out.println(new StringBuilder("Result :: ").append(service.getResult()).toString());
 	}
