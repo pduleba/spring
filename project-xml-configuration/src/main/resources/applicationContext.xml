@@ -17,6 +17,19 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 		class="com.pduleba.spring.xml.configuration.beans.LazyLoggerServiceImpl"
 		lazy-init="true" init-method="init" destroy-method="destroy"/>
 
+	<!-- Inheritance -->
+	<bean id="inheritanceExampleParentTemplate" abstract="true">
+		<property name="msg1" value="A" />
+		<property name="msg2" value="B" />
+		<property name="msg3" value="C" />
+	</bean>
+
+	<bean id="inheritanceExampleService" class="com.pduleba.spring.xml.inheritance.InheritanceExampleService"
+		parent="inheritanceExampleParentTemplate">
+		<property name="msg3" value="3" />
+		<property name="msg4" value="4" />
+	</bean>
+
 	<!-- Post Processors -->
 	<bean class="com.pduleba.spring.xml.postptocessors.SimpleBeanPostProcessor"/>
 

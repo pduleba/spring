@@ -1,6 +1,7 @@
 package com.pduleba.spring.xml;
 
 import static com.pduleba.spring.xml.configuration.beans.ServiceApi.SERVICE_BEAN_NAME;
+import static com.pduleba.spring.xml.inheritance.InheritanceExampleServiceApi.INHERITING_BEAN_NAME;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -26,8 +27,11 @@ public @AllArgsConstructor class XMLRunner {
 	}
 	
 	public void execute() {
+		System.out.println("------------------------------------------");
 		System.out.println("Starting XML Configuration based Spring...");
+		System.out.println("------------------------------------------");
 		System.out.println(context.getBean(LazyLoggerServiceApi.class));
+		System.out.println(context.getBean(INHERITING_BEAN_NAME));
 		System.out.println(new StringBuilder("Result :: ").append(service.getResult()).toString());
 	}
 	
