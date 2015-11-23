@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class SpringConfiguration {
 	
-	private static final String SERVICE_BEAN_MESSAGE = "Hello";
+	private static final String SERVICE_BEAN_MESSAGE = "Hello Mike";
 
 	@Bean(name=SERVICE_BEAN_NAME, autowire=Autowire.BY_TYPE)
 	public ServiceImpl service() {
