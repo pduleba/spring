@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.pduleba.spring.desktop.project</groupId>
-	<artifactId>project-java-configuration</artifactId>
+	<artifactId>project-xml-configuration</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>project-java-configuration</name>
+	<name>project-xml-configuration</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
