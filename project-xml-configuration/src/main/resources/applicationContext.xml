@@ -15,6 +15,9 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<bean id="lazyLogger"
 		class="com.pduleba.spring.xml.configuration.beans.LazyLoggerServiceImpl"
-		lazy-init="true" init-method="init" destroy-method="destroy" scope="prototype"/>
+		lazy-init="true" init-method="init" destroy-method="destroy"/>
+
+	<!-- Post Processors -->
+	<bean class="com.pduleba.spring.xml.postptocessors.SimpleBeanPostProcessor"/>
 
 </beans>

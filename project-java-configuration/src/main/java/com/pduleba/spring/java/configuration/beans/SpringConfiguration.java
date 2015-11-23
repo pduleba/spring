@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
+import com.pduleba.spring.xml.postptocessors.SimpleBeanPostProcessor;
+
 @Configuration
 public class SpringConfiguration {
 	
@@ -24,6 +26,11 @@ public class SpringConfiguration {
 	@Bean(name=TIME_SERVICE_BEAN_NAME)
 	public TimeServiceImpl timeService() {
 		return new TimeServiceImpl();
+	}
+	
+	@Bean
+	public SimpleBeanPostProcessor simpleBeanPostProcessor() {
+		return new SimpleBeanPostProcessor();
 	}
 	
 	@Scope(scopeName=ConfigurableBeanFactory.SCOPE_PROTOTYPE)

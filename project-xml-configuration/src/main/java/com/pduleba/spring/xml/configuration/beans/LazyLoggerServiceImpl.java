@@ -28,5 +28,4 @@ public @Data class LazyLoggerServiceImpl implements LazyLoggerServiceApi {
 	public String toString() {
 		return new StringBuilder("counter :: ").append(counter).toString();
 	}
-	
 }
