@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
 	public static final Logger LOG = LoggerFactory.getLogger(Main.class);
-	
+
 	private ApplicationContext ctx;
 
 	public Main() {
