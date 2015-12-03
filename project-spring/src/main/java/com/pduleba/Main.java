@@ -1,7 +1,7 @@
 package com.pduleba;
 
-import java.text.MessageFormat;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,6 +10,8 @@ import com.pduleba.spring.annotation.AnnotationBeanImpl;
 
 public class Main {
 
+	public static final Logger LOG = LoggerFactory.getLogger(Main.class);
+	
 	private ApplicationContext ctx;
 
 	public Main() {
@@ -19,9 +21,38 @@ public class Main {
 	public static void main(String[] args) {
 		Main main = new Main();
 //		main.checkAliases();
+//		LOG.info("------------");
 //		main.checkAnnotationConfigAliases();
+//		LOG.info("------------");
 //		main.checkInnerClass();
-		main.multiNameBean();
+//		LOG.info("------------");
+//		main.multiNameBean();
+//		LOG.info("------------");
+//		main.factoryMethod();
+//		LOG.info("------------");
+//		main.factoryBean();
+		LOG.info("------------");
+		main.constructorBaseBeanCreation();
+	}
+
+	private void constructorBaseBeanCreation() {
+		Object bean = ctx.getBean("multiArgumentBean");
+		
+		LOG.info("multi-constructor-bean {}", bean);
+	}
+	
+	private void factoryBean() {
+		Object bean = ctx.getBean("factory-bean");
+		
+		LOG.info("factory-bean {}", bean);
+	}
+
+	private void factoryMethod() {
+		Object bean = ctx.getBean("factory-method");
+		Object inner_bean = ctx.getBean("factory-inner_method");
+		
+		LOG.info("factory-bean {}", bean);
+		LOG.info("factory-inner_bean {}", inner_bean);
 	}
 
 	private void multiNameBean() {
@@ -29,21 +60,21 @@ public class Main {
 			String beanName = new StringBuilder("bean-").append(i).toString();
 			Object bean = ctx.getBean(beanName);
 			
-			System.out.println(MessageFormat.format("{0} = {1}", beanName, bean));
+			LOG.info("{} = {}", beanName, bean);
 		}
 	}
 
 	private void checkAnnotationConfigAliases() {
 		Object bean_a = ctx.getBean(AnnotationBeanImpl.ANNOTATION_BEAN_A_NAME);
-		Object bean_b = ctx.getBean(AnnotationBeanImpl.ANNOTATION_BEAN_A_NAME);
+		Object bean_b = ctx.getBean(AnnotationBeanImpl.ANNOTATION_BEAN_B_NAME);
 		
-		System.out.println("Annotation Config : bean_a == bean_b = " + (bean_a == bean_b));
+		LOG.info("Annotation Config : bean_a == bean_b = " + (bean_a == bean_b));
 	}
 
 	private void checkInnerClass() {
 		Object inner_bean = ctx.getBean("inner_bean");
-		System.out.println("inner_bean = " + inner_bean);
-		System.out.println("inner_bean instanceof InnerApi= " + (inner_bean instanceof InnerApi));
+		LOG.info("inner_bean = " + inner_bean);
+		LOG.info("inner_bean instanceof InnerApi= " + (inner_bean instanceof InnerApi));
 	}
 
 	private void checkAliases() {
@@ -51,12 +82,12 @@ public class Main {
 		Object bean_a = ctx.getBean("bean_a");
 		Object bean_b = ctx.getBean("bean_b");
 		
-		System.out.println("bean = " + bean);
-		System.out.println("bean_a = " + bean_a);
-		System.out.println("bean_b = " + bean_b);
-		System.out.println("bean == bean_a = " + (bean == bean_a));
-		System.out.println("bean == bean_b = " + (bean == bean_b));
-		System.out.println("bean_a == bean_b = " + (bean_a == bean_b));
+		LOG.info("bean = " + bean);
+		LOG.info("bean_a = " + bean_a);
+		LOG.info("bean_b = " + bean_b);
+		LOG.info("bean == bean_a = " + (bean == bean_a));
+		LOG.info("bean == bean_b = " + (bean == bean_b));
+		LOG.info("bean_a == bean_b = " + (bean_a == bean_b));
 	}
 	
 }

@@ -11,5 +11,12 @@ public class BeanImpl implements BeanApi {
 	
 	static class InnerImpl implements InnerApi {
 		
+		public static Object newInstance() {
+			return new InnerImpl();
+		}
+	}
+
+	public static Object newInstance() {
+		return new BeanImpl();
 	}
 }
