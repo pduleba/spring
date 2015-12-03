@@ -13,7 +13,10 @@
 	<context:component-scan base-package="com.pduleba.spring.annotation" />
 	
 	<bean id="c-bean" class="com.pduleba.spring.ServiceImpl" p:valueA="p-value" p:valueB-ref="p-value-ref"/>	
-	<bean id="p-bean" class="com.pduleba.spring.ServiceImpl" c:valueA="c-value" c:valueB-ref="c-value-ref"/>	
+	<bean id="p-bean" class="com.pduleba.spring.ServiceImpl" c:valueA="c-value" c:valueB-ref="c-value-ref" >
+		<property name="service.valueA" value="XXX" />
+		<property name="service.valueB" value="YYY" />
+	</bean>	
 	
 	<bean id="c-value-ref" class="java.lang.String" >
 		<constructor-arg index="0" type="java.lang.String" value="c-value-ref"/>
