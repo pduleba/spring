@@ -3,6 +3,8 @@ package com.pduleba;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.pduleba.spring.BeanImpl.InnerApi;
+
 public class Main {
 
 	private ApplicationContext ctx;
@@ -12,10 +14,18 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		new Main().doAction();
+		Main main = new Main();
+		main.checkAliases();
+		main.checkInnerClass();
 	}
 
-	private void doAction() {
+	private void checkInnerClass() {
+		Object inner_bean = ctx.getBean("inner_bean");
+		System.out.println("inner_bean = " + inner_bean);
+		System.out.println("inner_bean instanceof InnerApi= " + (inner_bean instanceof InnerApi));
+	}
+
+	private void checkAliases() {
 		Object bean = ctx.getBean("bean");
 		Object bean_a = ctx.getBean("bean_a");
 		Object bean_b = ctx.getBean("bean_b");

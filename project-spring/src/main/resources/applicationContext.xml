@@ -8,6 +8,8 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
 	<bean id="bean" class="com.pduleba.spring.BeanImpl"/>
+	<bean id="inner_bean" class="com.pduleba.spring.BeanImpl$InnerImpl"/>
+	
 	<alias name="bean" alias="bean_a"/>
 	<alias name="bean" alias="bean_b"/>
 
