@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.pduleba.spring.BeanImpl.InnerApi;
+import com.pduleba.spring.annotation.AnnotationBeanImpl;
 
 public class Main {
 
@@ -16,7 +17,15 @@ public class Main {
 	public static void main(String[] args) {
 		Main main = new Main();
 		main.checkAliases();
+		main.checkAnnotationConfigAliases();
 		main.checkInnerClass();
+	}
+
+	private void checkAnnotationConfigAliases() {
+		Object bean_a = ctx.getBean(AnnotationBeanImpl.ANNOTATION_BEAN_A_NAME);
+		Object bean_b = ctx.getBean(AnnotationBeanImpl.ANNOTATION_BEAN_A_NAME);
+		
+		System.out.println("Annotation Config : bean_a == bean_b = " + (bean_a == bean_b));
 	}
 
 	private void checkInnerClass() {
