@@ -32,4 +32,24 @@
 		<constructor-arg ref="baseB" index="1"/>
 	</bean>
 
+	<bean id="setter_based_chicken_a" class="com.pduleba.spring.ChickenBean">
+		<constructor-arg value="Chicken_A"/>
+		<property name="parent" ref="setter_based_chicken_b"/>
+	</bean>
+	
+	<bean id="setter_based_chicken_b" class="com.pduleba.spring.ChickenBean">
+		<constructor-arg value="Chicken_B"/>
+		<property name="parent" ref="setter_based_chicken_a"/>
+	</bean>
+	
+	<bean id="constructor_based_chicken_a" class="com.pduleba.spring.ChickenBean">
+		<constructor-arg value="Chicken_A"/>
+		<constructor-arg ref="constructor_based_chicken_b"/>
+	</bean>
+	
+	<bean id="constructor_based_chicken_b" class="com.pduleba.spring.ChickenBean">
+		<constructor-arg value="Chicken_B"/>
+		<constructor-arg ref="constructor_based_chicken_a"/>
+	</bean>
+	
 </beans>

@@ -31,8 +31,24 @@ public class Main {
 //		main.factoryMethod();
 //		LOG.info("------------");
 //		main.factoryBean();
+//		LOG.info("------------");
+//		main.constructorBaseBeanCreation();
 		LOG.info("------------");
-		main.constructorBaseBeanCreation();
+		main.circularBeanCreationCheck();
+	}
+
+	private void circularBeanCreationCheck() {
+		Object setter_based_chicken_a = ctx.getBean("setter_based_chicken_a");
+		Object setter_based_chicken_b = ctx.getBean("setter_based_chicken_b");
+		
+		LOG.info("setter based circular Chicken bean  {} ", setter_based_chicken_a);
+		LOG.info("setter based circular Chicken bean  {} ", setter_based_chicken_b);
+
+		Object constructor_based_chicken_a = ctx.getBean("constructor_based_chicken_a");
+		Object constructor_based_chicken_b = ctx.getBean("constructor_based_chicken_b");
+		
+		LOG.info("setter based circular Chicken bean  {} ", constructor_based_chicken_a);
+		LOG.info("setter based circular Chicken bean  {} ", constructor_based_chicken_b);
 	}
 
 	private void constructorBaseBeanCreation() {
