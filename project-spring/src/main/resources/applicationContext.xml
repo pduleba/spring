@@ -11,6 +11,7 @@
 	<context:component-scan base-package="com.pduleba.spring.annotation" />
 	
 	<bean id="bean" class="com.pduleba.spring.BeanImpl"/>
+	<bean id="bean-1" name="bean-2 bean-3,bean-4;bean-5" class="com.pduleba.spring.BeanImpl"/>
 	<bean id="inner_bean" class="com.pduleba.spring.BeanImpl$InnerImpl"/>
 	
 	<alias name="bean" alias="bean_a"/>

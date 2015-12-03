@@ -1,5 +1,7 @@
 package com.pduleba;
 
+import java.text.MessageFormat;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,9 +18,19 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Main main = new Main();
-		main.checkAliases();
-		main.checkAnnotationConfigAliases();
-		main.checkInnerClass();
+//		main.checkAliases();
+//		main.checkAnnotationConfigAliases();
+//		main.checkInnerClass();
+		main.multiNameBean();
+	}
+
+	private void multiNameBean() {
+		for (int i = 1; i <=5;i++) {
+			String beanName = new StringBuilder("bean-").append(i).toString();
+			Object bean = ctx.getBean(beanName);
+			
+			System.out.println(MessageFormat.format("{0} = {1}", beanName, bean));
+		}
 	}
 
 	private void checkAnnotationConfigAliases() {
