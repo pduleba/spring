@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
@@ -10,10 +12,13 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com.pduleba.spring.annotation" />
 	
-	<bean id="serviceBean" class="com.pduleba.spring.ServiceImpl" name="childServiceBean">
-		<property name="target">
-			<ref parent="serviceBean"/>
-		</property>
-	</bean>
+	<bean id="c-bean" class="com.pduleba.spring.ServiceImpl" p:valueA="p-value" p:valueB-ref="p-value-ref"/>	
+	<bean id="p-bean" class="com.pduleba.spring.ServiceImpl" c:valueA="c-value" c:valueB-ref="c-value-ref"/>	
 	
+	<bean id="c-value-ref" class="java.lang.String" >
+		<constructor-arg index="0" type="java.lang.String" value="c-value-ref"/>
+	</bean>
+	<bean id="p-value-ref" class="java.lang.String" >
+		<constructor-arg index="0" type="java.lang.String" value="p-value-ref"/>
+	</bean>
 </beans>

@@ -2,16 +2,18 @@ package com.pduleba.spring;
 
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Component
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public @Data class ServiceImpl implements ServiceApi {
 
-	private ServiceApi target;
-
-	@Override
-	public String toString() {
-		return "ServiceImpl [target=" + target + "]";
-	}
+	private String valueA;
+	private String valueB;
 	
 }

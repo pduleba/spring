@@ -12,18 +12,17 @@ public class Main {
 	private ApplicationContext ctx;
 
 	public Main() {
-		ctx = new ClassPathXmlApplicationContext(new String[] { "applicationContext.xml" },
-				new ClassPathXmlApplicationContext("applicationContextParent.xml"));
+		ctx = new ClassPathXmlApplicationContext(new String[] { "applicationContext.xml" });
 	}
 	
 	public static void main(String[] args) {
 		Main main = new Main();
 		LOG.info("------------");
-		main.referenceToParentBean();
+		main.utilityNamespacesTest();
 	}
 
-	private void referenceToParentBean() {
-		LOG.info("parent :: {} ", ctx.getBean("parentServiceBean"));
-		LOG.info("child  :: {} ", ctx.getBean("childServiceBean"));
+	private void utilityNamespacesTest() {
+		LOG.info("c-bean :: {} ", ctx.getBean("c-bean"));
+		LOG.info("p-bean :: {} ", ctx.getBean("p-bean"));
 	}
 }
