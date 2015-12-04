@@ -1,5 +1,6 @@
 package com.pduleba.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,7 @@ public @Data class BeanImpl implements Bean {
 	private String valueA;
 	private String valueB;
 
+	@Autowired
 	private ChildBean childBean;
 
 	public BeanImpl(String valueA, String valueB) {

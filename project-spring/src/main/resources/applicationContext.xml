@@ -12,6 +12,11 @@
 	<!-- Enables RequiredAnnotationBeanPostProcessor -->
 	<context:annotation-config />
 	
-	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value"/>		
+	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value" >
+		<!-- <property name="childBean" ref="childBean" /> -->
+	</bean>
+	<bean id="childBean" class="com.pduleba.spring.ChildBeanImpl" />	
+	
+	<bean class="com.pduleba.spring.postprocessor.ToStringBeanPostProcessor" />
 	
 </beans>
