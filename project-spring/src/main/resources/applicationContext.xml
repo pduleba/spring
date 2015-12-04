@@ -12,8 +12,6 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com.pduleba.spring.annotation" />
 	
-	<bean id="singletonBean" class="com.pduleba.spring.ServiceImpl" p:valueA="p-value" p:valueB="p-value"/>	
-	
-	<bean id="command" class="com.pduleba.spring.CommandImpl" scope="prototype" />
+	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value"/>	
 	
 </beans>
