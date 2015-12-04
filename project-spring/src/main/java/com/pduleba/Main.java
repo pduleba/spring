@@ -13,6 +13,7 @@ public class Main {
 	
 	public Main() {
 		ctx = new ClassPathXmlApplicationContext(new String[] { "applicationContext.xml" });
+		ctx.registerShutdownHook();
 	}
 	
 	public static void main(String[] args) {
