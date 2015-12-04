@@ -9,9 +9,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
+	<!-- Enables RequiredAnnotationBeanPostProcessor -->
 	<context:annotation-config />
-	<context:component-scan base-package="com.pduleba.spring.annotation" />
 	
-	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value"/>	
+	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value"/>		
 	
 </beans>
