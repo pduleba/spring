@@ -14,12 +14,6 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com.pduleba.spring.annotation" />
 	
-	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value" scope="session">
-		<aop:scoped-proxy/>
-	</bean>	
-	
-	<bean id="parentBean" class="com.pduleba.spring.ParentBeanImpl">
-		<constructor-arg ref="bean"/>
-	</bean>
+	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value" />	
 
 </beans>
