@@ -23,5 +23,7 @@ public class Main {
 
 	private void test() {
 		LOG.info("Bean :: {}", ctx.getBean("bean"));
+		LOG.info("ParentBean :: {}", ctx.getBean("parentBean"));
 	}
 }
+
