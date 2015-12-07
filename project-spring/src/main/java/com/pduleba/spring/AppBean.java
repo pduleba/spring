@@ -1,5 +1,5 @@
 package com.pduleba.spring;
 
-public interface BeanApi {
+public class AppBean {
 
 }
