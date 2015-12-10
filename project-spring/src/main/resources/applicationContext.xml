@@ -12,6 +12,8 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com.pduleba.spring.annotation" />
 	
-	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value"/>	
+	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value" >
+		<property name="resource" value="classpath:applicationContext.xml"/><!-- Converted by PropertyEditor -->
+	</bean>	
 	
 </beans>
