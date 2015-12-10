@@ -1,34 +1,15 @@
 package com.pduleba.spring.java.configuration.beans;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-
 import lombok.Data;
 
 @Data
-class ServiceImpl implements ServiceApi, InitializingBean, DisposableBean {
-
-	private String message;
-
-	private TimeServiceApi timeService;
-
-	public ServiceImpl(String message) {
-		super();
-		this.message = message;
-	}
+public abstract class ServiceImpl implements Service {
 
 	@Override
-	public String getResult() {
-		return new StringBuilder(message).append(" on ").append(timeService.getCurrentDate()).toString();
+	public String execute(String taskId) {
+		Command command = generateCommand();
+		command.setTaskId(taskId);
+		return command.execute();
 	}
-
-	@Override
-	public void destroy() throws Exception {
-		System.out.println("ServiceImpl :: destroy() called");
-	}
-
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("ServiceImpl :: afterPropertiesSet() called");
-	}
+	
 }
