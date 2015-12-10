@@ -12,11 +12,14 @@ import lombok.AllArgsConstructor;
 
 public @AllArgsConstructor class Main {
 
-	private Service service;
+	private Service serviceA;
+	private Service serviceB;
 	
 	public static void main(String[] args) throws InterruptedException {
 		try (ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class)) {
-			new Main(context.getBean(Service.class)).execute();
+			Service serviceABean = context.getBean(Service.SERVICE_A_BEAN_NAME, Service.class);
+			Service serviceBBean = context.getBean(Service.SERVICE_B_BEAN_NAME, Service.class);
+			new Main(serviceABean, serviceBBean).execute();
 		}
 	}
 	
@@ -24,9 +27,9 @@ public @AllArgsConstructor class Main {
 		System.out.println("------------------------------------------");
 		System.out.println("Starting Java Configuration based Spring...");
 		System.out.println("------------------------------------------");
-		for (int i = 1; i < 10; i++) {
-			System.out.println(MessageFormat.format("Service result :: {0}", service.execute(String.valueOf(i))));
-		}
+
+		System.out.println(MessageFormat.format("Service A result :: {0}", serviceA.execute()));
+		System.out.println(MessageFormat.format("Service B result :: {0}", serviceB.execute()));
 	}
 	
 }

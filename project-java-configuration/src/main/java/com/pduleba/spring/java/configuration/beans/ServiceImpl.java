@@ -3,12 +3,15 @@ package com.pduleba.spring.java.configuration.beans;
 import lombok.Data;
 
 @Data
-public abstract class ServiceImpl implements Service {
+public class ServiceImpl implements Service {
+	
+	private Command command;
 
-	@Override
-	public String execute(String taskId) {
-		Command command = generateCommand();
-		command.setTaskId(taskId);
+	public ServiceImpl(Command command) {
+		this.command = command;
+	}
+
+	public String execute() {
 		return command.execute();
 	}
 	

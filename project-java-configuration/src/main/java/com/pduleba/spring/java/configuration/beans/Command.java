@@ -4,6 +4,4 @@ public interface Command {
 
 	String execute();
 
-	void setTaskId(String taskId);
-
 }

@@ -1,11 +1,10 @@
 package com.pduleba.spring.java.configuration;
 
-import static com.pduleba.spring.java.configuration.beans.Service.SERVICE_BEAN_NAME;
+import static com.pduleba.spring.java.configuration.beans.Service.SERVICE_A_BEAN_NAME;
+import static com.pduleba.spring.java.configuration.beans.Service.SERVICE_B_BEAN_NAME;
 
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 import com.pduleba.spring.java.configuration.beans.Command;
 import com.pduleba.spring.java.configuration.beans.CommandImpl;
@@ -15,19 +14,18 @@ import com.pduleba.spring.java.configuration.beans.ServiceImpl;
 @Configuration
 public class SpringConfig {
 	
-	@Bean(name=SERVICE_BEAN_NAME)
-	public Service service() {
-		return new ServiceImpl() {
-			@Override
-			public Command generateCommand() {
-				return createCommand();
-			}
-		};
+	@Bean(name=SERVICE_A_BEAN_NAME)
+	public Service createServiceA() {
+		return new ServiceImpl(createCommad());
 	}
 	
+	@Bean(name=SERVICE_B_BEAN_NAME)
+	public Service createServiceB() {
+		return new ServiceImpl(createCommad());
+	}
+
 	@Bean
-	@Scope(scopeName=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-	public Command createCommand() {
+	public Command createCommad() {
 		return new CommandImpl();
-	}	
+	}
 }
