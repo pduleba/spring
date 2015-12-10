@@ -2,26 +2,32 @@ package com.pduleba;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Main {
+public class Main implements AutoCloseable {
 
 	public static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
-	private ApplicationContext ctx;
+	private ConfigurableApplicationContext context;
 	
 	public Main() {
-		ctx = new ClassPathXmlApplicationContext(new String[] { "applicationContext.xml" });
+		this.context = new ClassPathXmlApplicationContext(new String[] { "applicationContext.xml" });
 	}
 	
 	public static void main(String[] args) {
-		Main main = new Main();
-		LOG.info("------------");
-		main.test();
+		try (Main main = new Main()) {
+			LOG.info("------------");
+			main.test();
+		}
 	}
 
 	private void test() {
-		LOG.info("Bean :: {}", ctx.getBean("bean"));
+		LOG.info("Bean :: {}", context.getBean("bean"));
+	}
+
+	@Override
+	public void close() {
+		context.close();
 	}
 }
