@@ -10,14 +10,14 @@ import com.pduleba.spring.java.configuration.beans.Service;
 
 import lombok.AllArgsConstructor;
 
-public @AllArgsConstructor class JavaRunner {
+public @AllArgsConstructor class Main {
 
 	private Service service;
 	
 	public static void main(String[] args) throws InterruptedException {
-		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-		
-		new JavaRunner(context.getBean(Service.class)).execute();
+		try (ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class)) {
+			new Main(context.getBean(Service.class)).execute();
+		}
 	}
 	
 	public void execute() {
