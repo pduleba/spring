@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.pduleba.spring.UserService;
+
 public class Main implements AutoCloseable {
 
 	public static final Logger LOG = LoggerFactory.getLogger(Main.class);
@@ -23,7 +25,9 @@ public class Main implements AutoCloseable {
 	}
 
 	private void test() {
-		LOG.info("Bean :: {}", context.getBean("bean"));
+		UserService bean = context.getBean(UserService.class);
+		LOG.info("Bean :: {}", bean);
+		bean.execute();
 	}
 
 	@Override
