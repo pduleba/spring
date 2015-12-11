@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:c="http://www.springframework.org/schema/c"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
-	<context:annotation-config />
-	<context:component-scan base-package="com.pduleba.spring.annotation" />
+	<context:component-scan base-package="com.pduleba.spring, com.pduleba.property.registrar" />
+
+	<!-- Property Editors -->
+	<!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="com.pduleba.task.UserTask" value="com.pduleba.property.editor.UserTaskPropertyEditor" />
+			</map>
+		</property>
+	</bean> -->
 	
-	<bean id="bean" class="com.pduleba.spring.BeanImpl" p:valueA="p-value" p:valueB="p-value"/>	
-	
+	<!-- Property Registrar -->
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer" >
+		<property name="propertyEditorRegistrars" >
+			<array>
+				<ref bean="userTypePropertyEditorRegistrar"/>
+			</array>
+		</property>
+	</bean>
+
+	<!-- Property Converter -->	
+	<bean class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<set>
+				<bean class="com.pduleba.property.converter.StringToUserTaskConverter" />
+			</set>
+		</property>
+	</bean>
+
+
 </beans>
